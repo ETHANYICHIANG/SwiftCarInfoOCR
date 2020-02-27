@@ -11,8 +11,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var averageColorLabel: UILabel!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var dominantColorLabel: UILabel!
+    @IBOutlet weak var secondDominantColorLabel: UILabel!
+    @IBOutlet weak var thirdDominantColorLabel: UILabel!
+    
+    @IBOutlet weak var pickImageButton: UIButton!
+    
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -34,27 +40,18 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = image
-            averageColorLabel.backgroundColor = image.averageColor
+
+            pickImageButton.isUserInteractionEnabled = false
+            activityIndicator.startAnimating()
+            image.determineDominantColor { colors in
+                self.dominantColorLabel.backgroundColor = colors[0]
+                self.secondDominantColorLabel.backgroundColor = colors[1]
+                self.thirdDominantColorLabel.backgroundColor = colors[2]
+                self.activityIndicator.stopAnimating()
+                self.pickImageButton.isUserInteractionEnabled = true
+            }
         }
         
         dismiss(animated: true, completion: nil)
     }
 }
-
-// Extends UIImage to be able to determine its average color
-extension UIImage {
-    var averageColor: UIColor? {
-        guard let inputImage = CIImage(image: self) else { return nil }
-        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
-
-        guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
-        guard let outputImage = filter.outputImage else { return nil }
-
-        var bitmap = [UInt8](repeating: 0, count: 4)
-        let context = CIContext(options: [.workingColorSpace: kCFNull ?? CFNull.self])
-        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
-
-        return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
-    }
-}
-

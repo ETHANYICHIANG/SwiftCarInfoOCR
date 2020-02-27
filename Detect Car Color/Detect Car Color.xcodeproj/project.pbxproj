@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6410E2A02407ACC500BDEDE7 /* K-Means Clusterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410E29F2407ACC500BDEDE7 /* K-Means Clusterer.swift */; };
 		64185BB523FF2A76006B7719 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64185BB423FF2A76006B7719 /* AppDelegate.swift */; };
 		64185BB723FF2A76006B7719 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64185BB623FF2A76006B7719 /* SceneDelegate.swift */; };
 		64185BB923FF2A76006B7719 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64185BB823FF2A76006B7719 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6410E29F2407ACC500BDEDE7 /* K-Means Clusterer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "K-Means Clusterer.swift"; sourceTree = "<group>"; };
 		64185BB123FF2A76006B7719 /* Detect Car Color.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Detect Car Color.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64185BB423FF2A76006B7719 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64185BB623FF2A76006B7719 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				64185BB423FF2A76006B7719 /* AppDelegate.swift */,
 				64185BB623FF2A76006B7719 /* SceneDelegate.swift */,
 				64185BB823FF2A76006B7719 /* ViewController.swift */,
+				6410E29F2407ACC500BDEDE7 /* K-Means Clusterer.swift */,
 				64185BBA23FF2A76006B7719 /* Main.storyboard */,
 				64185BBD23FF2A79006B7719 /* Assets.xcassets */,
 				64185BBF23FF2A79006B7719 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				64185BB923FF2A76006B7719 /* ViewController.swift in Sources */,
 				64185BB523FF2A76006B7719 /* AppDelegate.swift in Sources */,
 				64185BB723FF2A76006B7719 /* SceneDelegate.swift in Sources */,
+				6410E2A02407ACC500BDEDE7 /* K-Means Clusterer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7722SW2M2G;
 				INFOPLIST_FILE = "Detect Car Color/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +310,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7722SW2M2G;
 				INFOPLIST_FILE = "Detect Car Color/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
