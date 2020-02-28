@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftCarInfoOCR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J4W-h4-IG6">
+                                <rect key="frame" x="20" y="64" width="374" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="Ks0-HG-QF3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18t-kg-Ios">
+                                <rect key="frame" x="142" y="628" width="130" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HqI-Ix-8hC"/>
+                                    <constraint firstAttribute="width" constant="130" id="YYu-Qp-tCM"/>
+                                </constraints>
+                                <state key="normal" title="Start Sceen">
+                                    <color key="titleColor" white="0.94619278169999999" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startSceenClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nL9-gg-bQq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jid-TP-Vx9">
+                                <rect key="frame" x="20" y="572" width="374" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Jid-TP-Vx9" firstAttribute="top" secondItem="J4W-h4-IG6" secondAttribute="bottom" constant="8" id="SXk-8Q-EXj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J4W-h4-IG6" secondAttribute="trailing" constant="20" id="So7-j4-tnS"/>
+                            <constraint firstItem="18t-kg-Ios" firstAttribute="top" secondItem="Jid-TP-Vx9" secondAttribute="bottom" constant="8" id="TbL-dg-01I"/>
+                            <constraint firstItem="18t-kg-Ios" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Up1-De-keX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jid-TP-Vx9" secondAttribute="trailing" constant="20" id="XyY-kk-NNY"/>
+                            <constraint firstItem="Jid-TP-Vx9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eCk-CW-5aK"/>
+                            <constraint firstItem="J4W-h4-IG6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pIb-4u-Zae"/>
+                            <constraint firstItem="18t-kg-Ios" firstAttribute="top" secondItem="J4W-h4-IG6" secondAttribute="bottom" constant="64" id="tCv-Pq-vvI"/>
+                            <constraint firstItem="J4W-h4-IG6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="tku-WG-hpb"/>
+                            <constraint firstItem="J4W-h4-IG6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vU5-yW-43F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="J4W-h4-IG6" id="uzu-oi-Pox"/>
+                        <outlet property="plateText" destination="Jid-TP-Vx9" id="THG-gm-mt0"/>
+                        <outlet property="startSceenBtn" destination="18t-kg-Ios" id="q3Y-or-PzF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+</document>
