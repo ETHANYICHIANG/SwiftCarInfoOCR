@@ -14,6 +14,7 @@
 		64185BBC23FF2A76006B7719 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64185BBA23FF2A76006B7719 /* Main.storyboard */; };
 		64185BBE23FF2A79006B7719 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64185BBD23FF2A79006B7719 /* Assets.xcassets */; };
 		64185BC123FF2A79006B7719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64185BBF23FF2A79006B7719 /* LaunchScreen.storyboard */; };
+		641D3496240879C800367CB1 /* CarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D3495240879C800367CB1 /* CarColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		64185BBD23FF2A79006B7719 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64185BC023FF2A79006B7719 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64185BC223FF2A79006B7719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		641D3495240879C800367CB1 /* CarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				64185BB623FF2A76006B7719 /* SceneDelegate.swift */,
 				64185BB823FF2A76006B7719 /* ViewController.swift */,
 				6410E29F2407ACC500BDEDE7 /* K-Means Clusterer.swift */,
+				641D3495240879C800367CB1 /* CarColor.swift */,
 				64185BBA23FF2A76006B7719 /* Main.storyboard */,
 				64185BBD23FF2A79006B7719 /* Assets.xcassets */,
 				64185BBF23FF2A79006B7719 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				64185BB923FF2A76006B7719 /* ViewController.swift in Sources */,
 				64185BB523FF2A76006B7719 /* AppDelegate.swift in Sources */,
+				641D3496240879C800367CB1 /* CarColor.swift in Sources */,
 				64185BB723FF2A76006B7719 /* SceneDelegate.swift in Sources */,
 				6410E2A02407ACC500BDEDE7 /* K-Means Clusterer.swift in Sources */,
 			);

@@ -57,17 +57,21 @@ extension UIImage {
         }
         return result
     }
-    func determineDominantColor(completion: @escaping (_ colors: [UIColor]) -> Void) {
+    func determineDominantColors(completion: @escaping (_ carColors: [CarColor]) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             let smallImage = self.resized(to: CGSize(width: 100, height: 100))
             let kMeans = KMeansClusterer()
-            let points = smallImage.getPixels().map({KMeansClusterer.Point(from: $0)})
+            let points = smallImage.getPixels().map({Point(from: $0)})
             let clusters = kMeans.cluster(points: points, into: 3).sorted(by: {$0.points.count > $1.points.count})
-            let colors = clusters.map(({$0.center.toUIColor()}))
-            guard let _ = colors.first else {
-                return
+            let colors = clusters.map {$0.center.toUIColor()}
+            let carColors = colors.map {CarColor(from: $0)}
+//            guard let dominantColor = carColors.first else {
+//                return
+//            }
+            DispatchQueue.main.async {
+                // Update view inside main queue
+                completion(carColors)
             }
-            completion(colors)
         }
     }
 }
@@ -135,51 +139,50 @@ extension KMeansClusterer {
         }
     }
 }
-extension KMeansClusterer {
-    struct Point : Equatable {
-        let x : CGFloat
-        let y : CGFloat
-        let z : CGFloat
-        init(_ x: CGFloat, _ y : CGFloat, _ z : CGFloat) {
-            self.x = x
-            self.y = y
-            self.z = z
+
+struct Point : Equatable {
+    let x : CGFloat
+    let y : CGFloat
+    let z : CGFloat
+    init(_ x: CGFloat, _ y : CGFloat, _ z : CGFloat) {
+        self.x = x
+        self.y = y
+        self.z = z
+    }
+    init(from color : UIColor) {
+        var r : CGFloat = 0
+        var g : CGFloat = 0
+        var b : CGFloat = 0
+        var a : CGFloat = 0
+        if color.getRed(&r, green: &g, blue: &b, alpha: &a) {
+            x = r
+            y = g
+            z = b
+        } else {
+            x = 0
+            y = 0
+            z = 0
         }
-        init(from color : UIColor) {
-            var r : CGFloat = 0
-            var g : CGFloat = 0
-            var b : CGFloat = 0
-            var a : CGFloat = 0
-            if color.getRed(&r, green: &g, blue: &b, alpha: &a) {
-                x = r
-                y = g
-                z = b
-            } else {
-                x = 0
-                y = 0
-                z = 0
-            }
-        }
-        static let zero = Point(0, 0, 0)
-        static func == (lhs: Point, rhs: Point) -> Bool {
-            return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
-        }
-        static func +(lhs : Point, rhs : Point) -> Point {
-            return Point(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z)
-        }
-        static func /(lhs : Point, rhs : CGFloat) -> Point {
-            return Point(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs)
-        }
-        static func /(lhs : Point, rhs : Int) -> Point {
-            return lhs / CGFloat(rhs)
-        }
-        func distanceSquared(to p : Point) -> CGFloat {
-            return (self.x - p.x) * (self.x - p.x)
-                + (self.y - p.y) * (self.y - p.y)
-                + (self.z - p.z) * (self.z - p.z)
-        }
-        func toUIColor() -> UIColor {
-            return UIColor(red: x, green: y, blue: z, alpha: 1)
-        }
+    }
+    static let zero = Point(0, 0, 0)
+    static func == (lhs: Point, rhs: Point) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
+    }
+    static func +(lhs : Point, rhs : Point) -> Point {
+        return Point(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z)
+    }
+    static func /(lhs : Point, rhs : CGFloat) -> Point {
+        return Point(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs)
+    }
+    static func /(lhs : Point, rhs : Int) -> Point {
+        return lhs / CGFloat(rhs)
+    }
+    func distanceSquared(to p : Point) -> CGFloat {
+        return (self.x - p.x) * (self.x - p.x)
+            + (self.y - p.y) * (self.y - p.y)
+            + (self.z - p.z) * (self.z - p.z)
+    }
+    func toUIColor() -> UIColor {
+        return UIColor(red: x, green: y, blue: z, alpha: 1)
     }
 }

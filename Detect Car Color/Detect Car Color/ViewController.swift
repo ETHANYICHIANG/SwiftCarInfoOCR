@@ -32,6 +32,19 @@ class ViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func setColorLabels(with carColors: [CarColor]) {
+        self.dominantColorLabel.backgroundColor = carColors[0].color
+        self.dominantColorLabel.text = carColors[0].name
+        carColors[0].color.print()
+
+        self.secondDominantColorLabel.backgroundColor = carColors[1].color
+        self.secondDominantColorLabel.text = carColors[1].name
+        carColors[1].color.print()
+
+        self.thirdDominantColorLabel.backgroundColor = carColors[2].color
+        self.thirdDominantColorLabel.text = carColors[2].name
+        carColors[2].color.print()
+    }
 }
 
 // Deals with what to do after a user chooses an image
@@ -43,10 +56,8 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 
             pickImageButton.isUserInteractionEnabled = false
             activityIndicator.startAnimating()
-            image.determineDominantColor { colors in
-                self.dominantColorLabel.backgroundColor = colors[0]
-                self.secondDominantColorLabel.backgroundColor = colors[1]
-                self.thirdDominantColorLabel.backgroundColor = colors[2]
+            image.determineDominantColors { carColors in
+                self.setColorLabels(with: carColors)
                 self.activityIndicator.stopAnimating()
                 self.pickImageButton.isUserInteractionEnabled = true
             }
