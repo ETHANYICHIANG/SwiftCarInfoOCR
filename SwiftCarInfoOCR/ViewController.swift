@@ -80,7 +80,7 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
                 self.frameExtractor.stop()
                 self.startCapture = false
                 self.callOCR(image: image)
-                //self.plateText.text = self.votingManager.chooseMostLikelyLicensePlate()
+            //self.plateText.text = self.licensePlateTextAnalyzer.determineMostLikelyLicensePlateNumber()
             //}
             
             
@@ -89,7 +89,7 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
 //                self.extractCount = 0
 //
 //                // Get voting result
-//                self.plateText.text = self.votingManager.chooseMostLikelyLicensePlate()
+//                self.plateText.text = self.licensePlateTextAnalyzer.determineMostLikelyLicensePlateNumber()
 //            }
         }
     }
