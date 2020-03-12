@@ -18,7 +18,7 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
     @IBOutlet weak var plateText: UILabel!
     
     var frameExtractor: FrameExtractor!
-    var votingManager = VotingManager()
+    let licensePlateTextAnalyzer = LicensePlateTextAnalyzer()
     
     var extractCount = 0
     var startCapture = false
@@ -27,7 +27,6 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         self.frameExtractor = FrameExtractor()
         self.frameExtractor.delegate = self
     }
@@ -48,7 +47,7 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
             let topCandidate = currentObservation.topCandidates(5)
                 if let recognizedText = topCandidate.first {
                     // Add to voting algorithm
-                    //self.votingManager.add(licensePlate: recognizedText.string)
+                    //self.licensePlateTextAnalyzer.add(potentialLicensePlateNumber: recognizedText.string)
                     // Print top 5
                     
                     for candidate in topCandidate {

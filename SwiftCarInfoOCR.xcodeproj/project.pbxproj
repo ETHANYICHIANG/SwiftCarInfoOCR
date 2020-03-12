@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		966B04BA2409166300400CBC /* VotingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966B04B92409166300400CBC /* VotingManager.swift */; };
+		966B04BA2409166300400CBC /* LicensePlateTextAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966B04B92409166300400CBC /* LicensePlateTextAnalyzer.swift */; };
 		969BCCCE23F5D50700576248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BCCCD23F5D50700576248 /* AppDelegate.swift */; };
 		969BCCD023F5D50700576248 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BCCCF23F5D50700576248 /* SceneDelegate.swift */; };
 		969BCCD223F5D50700576248 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BCCD123F5D50700576248 /* ViewController.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		966B04B92409166300400CBC /* VotingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingManager.swift; sourceTree = "<group>"; };
+		966B04B92409166300400CBC /* LicensePlateTextAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensePlateTextAnalyzer.swift; sourceTree = "<group>"; };
 		969BCCCA23F5D50700576248 /* SwiftCarInfoOCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCarInfoOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969BCCCD23F5D50700576248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969BCCCF23F5D50700576248 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 				969BCCD123F5D50700576248 /* ViewController.swift */,
 				969BCCE123F5D78700576248 /* FrameExtraction.swift */,
 				969BCCD323F5D50700576248 /* Main.storyboard */,
-				966B04B92409166300400CBC /* VotingManager.swift */,
+				966B04B92409166300400CBC /* LicensePlateTextAnalyzer.swift */,
 				969BCCD623F5D50D00576248 /* Assets.xcassets */,
 				969BCCD823F5D50D00576248 /* LaunchScreen.storyboard */,
 				969BCCDB23F5D50D00576248 /* Info.plist */,
@@ -146,7 +146,7 @@
 			files = (
 				969BCCD223F5D50700576248 /* ViewController.swift in Sources */,
 				969BCCE223F5D78700576248 /* FrameExtraction.swift in Sources */,
-				966B04BA2409166300400CBC /* VotingManager.swift in Sources */,
+				966B04BA2409166300400CBC /* LicensePlateTextAnalyzer.swift in Sources */,
 				969BCCCE23F5D50700576248 /* AppDelegate.swift in Sources */,
 				969BCCD023F5D50700576248 /* SceneDelegate.swift in Sources */,
 			);
@@ -293,13 +293,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BVT62X66MW;
+				DEVELOPMENT_TEAM = 7722SW2M2G;
 				INFOPLIST_FILE = SwiftCarInfoOCR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = EYC.SwiftCarInfoOCR;
+				PRODUCT_BUNDLE_IDENTIFIER = EYC.SwiftCarInfoOCR1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -311,13 +312,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BVT62X66MW;
+				DEVELOPMENT_TEAM = 7722SW2M2G;
 				INFOPLIST_FILE = SwiftCarInfoOCR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = EYC.SwiftCarInfoOCR;
+				PRODUCT_BUNDLE_IDENTIFIER = EYC.SwiftCarInfoOCR1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
