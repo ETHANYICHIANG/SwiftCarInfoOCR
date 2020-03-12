@@ -44,10 +44,13 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
         let request = VNRecognizeTextRequest { (request, error) in
         guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
         for currentObservation in observations {
-            let topCandidate = currentObservation.topCandidates(5)
+            let topCandidate = currentObservation.topCandidates(10)
                 if let recognizedText = topCandidate.first {
                     // Add to voting algorithm
+
                     //self.licensePlateTextAnalyzer.add(potentialLicensePlateNumber: recognizedText.string)
+                    self.extractCount += 1
+
                     // Print top 5
                     
                     for candidate in topCandidate {
@@ -80,15 +83,13 @@ AVCaptureVideoDataOutputSampleBufferDelegate {
                 //self.plateText.text = self.votingManager.chooseMostLikelyLicensePlate()
             //}
             
-//            self.extractCount += 1
+            
 //            if (self.extractCount == 10) {
 //                self.frameExtractor.stop()
 //                self.extractCount = 0
 //
 //                // Get voting result
-//                let mostLikely = self.votingManager.chooseMostLikelyLicensePlate()
-//
-//                self.plateText.text = mostLikely
+//                self.plateText.text = self.votingManager.chooseMostLikelyLicensePlate()
 //            }
         }
     }
